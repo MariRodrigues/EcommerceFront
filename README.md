@@ -1,4 +1,13 @@
-# ecommercefront
+# EcommerceFront
+Projeto Frontend consumindo uma API de um ecommerce.
+
+## Instalações
+Para rodar o projeto, primeiramente, deve ter instalado na máquina o ```NodeJs``` e ```NPM```. É possível fazer o download no link a seguir: https://nodejs.org/en/download/
+
+Também é necessário o VueJs. Para instalar, basta rodar no terminal o seguinte comando:
+```
+npm install -g @vue/cli
+```
 
 ## Project setup
 ```
