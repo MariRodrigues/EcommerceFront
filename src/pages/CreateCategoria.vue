@@ -61,18 +61,18 @@ export default {
     };
   },
   mounted() {
-    ecommerce.get("v2/Categoria").then((response) => {
+    ecommerce.get("v1/Categoria").then((response) => {
       this.products = response.data;
     });
   },
 
   methods: {
     salvar() {
-      ecommerce.post("v2/Categoria", this.categoria).then((response) => {
+      ecommerce.post("v1/Categoria", this.categoria).then((response) => {
         console.log(response);
 
         this.visible = false;
-        this.$router.push("/Categorias");
+        this.$router.push("v1/Categorias");
       });
     },
   },

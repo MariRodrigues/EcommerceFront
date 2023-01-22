@@ -1,6 +1,13 @@
 <template>
   <main>
+    <nav id="menu" v-for="(categoria, index) in categories" :key="index">
+        <ul>
+	          <li>{{ categoria.nome }}</li>
+	        </ul> 
+
+      </nav>
     <section class="container">
+      
       <h1 class="titulo-sessao">Produtos</h1>
       <section class="painel">
         <div class="produto" v-for="(product, index) in products" :key="index">          
@@ -12,7 +19,7 @@
                 <div class="card-body">
                   <h5 class="card-title"><strong>{{ product.nome }}</strong></h5>
                   <p class="card-text">{{ product.descricao }}</p>
-                  <h5 class="card-text">R$ {{product.peso}}</h5>
+                  <h5 class="card-text" id="valor"><strong>R$ {{product.valor}}</strong></h5>
                   <a href="#" class="btn btn-dark mt-auto">Adicionar no carrinho</a>
                 </div>
               </div>
@@ -30,11 +37,16 @@ export default {
   data() {
     return {
       products: [],
+      categories: [],
     };
   },
   mounted() {
-    ecommerce.get("v2/Produto").then((response) => {
+    ecommerce.get("v1/Produto").then((response) => {
       this.products = response.data;
+
+      ecommerce.get("v1/categoria").then((response) => {
+      this.categories = response.data;
+    });
     });
   },
 };
@@ -55,11 +67,44 @@ main {
     flex-direction: column;
 }
 
+#menu{
+  width: 100%;
+  background-color: #e9b000;
+  height: 60px;
+flex-wrap: wrap;
+}
+
+#menu ul {
+	display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+}
+
+#menu ul li {
+	list-style-type: none;
+  padding-right: 14px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+
+#menu ul li a{
+  text-decoration: none;
+}
+
 .produto {
   width: 100%;
   margin: 10px;
   justify-content: center;
 
+}
+
+#valor{
+  color:#666563;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 25px;
 }
 
 .painel {
@@ -77,7 +122,7 @@ main {
 }
 
 .card img {
-    height: 200px;
+    height: 400px;
 }
 
 .card-title{

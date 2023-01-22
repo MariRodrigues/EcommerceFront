@@ -63,11 +63,11 @@ export default {
 
   methods: {
     editar() {
-      ecommerce.put("v2/Categoria", this.categoria).then((response) => {
+      ecommerce.put("v1/Categoria", this.categoria).then((response) => {
         console.log(response);
 
         this.visible = false;
-        this.$router.push("/Categorias");
+        this.$router.push("v1/Categorias");
       });
     },
   },

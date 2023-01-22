@@ -29,7 +29,7 @@
             <tr>
               <td>{{ product.nome }}</td>
               <td>{{ product.status }}</td>
-              <td>{{ product.dataCriacao }}</td>
+              <td>{{ moment(product.dataCriacao).format('DD/MM/YYYY hh:mm') }}</td>
               <td>{{ product.dataModificacao }}</td>
               <td>
                 <button type="button" class="btn btn-table btn-secondary">
@@ -89,7 +89,7 @@ export default {
     };
   },
   mounted() {
-    ecommerce.get("v2/categoria").then((response) => {
+    ecommerce.get("v1/categoria").then((response) => {
       this.products = response.data;
     });
   },

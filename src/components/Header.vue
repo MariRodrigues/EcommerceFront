@@ -1,7 +1,7 @@
 <template>
     <header>
         <nav class="container">
-            <a href="/"><img alt="WDEV" id="logo" src="@/assets/code2.png">
+            <a href="/"><img alt="WDEV" id="logo" src="@/assets/logo-07.png">
 
             </a>
             <img v-on:click="openMenu"  alt="Abrir menu" id="menu-button" src="https://raw.githubusercontent.com/william-costa/wdev-mock-site-resources/master/assets/images/menu.svg">
@@ -45,7 +45,7 @@ export default {
 <style scoped>
     header {
         background-color: var(--color-background-nav);
-        height: 60px;
+        height: 90px;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -53,13 +53,14 @@ export default {
     }
 
     #logo{
-        width: 98px;
+        width: 220px;
+        margin-left: 150px;
     }
 
     #menu-button{
         width: 30px;
-
     }
+    
     nav{
         display: flex;
         justify-content: space-between;
@@ -107,9 +108,9 @@ export default {
     }
 
     ul li {
-        margin: 20px 0px;
-        
+        margin: 20px 0px;        
     }
+    
     ul li a {
         color: var(--color-text-light);
         text-decoration: none;
@@ -137,7 +138,9 @@ export default {
 
         ul li {
             margin: 0;
-            margin-left: 10px;
+            margin-left: 30px;
+            font-size: 18px;
+
         }
     }
 
